@@ -39,11 +39,14 @@ def cadastra_cliente() :
     clear_os()
 
 def mostrar_cliente() :
+    file = open("Clientes.json", "r", encoding='utf-8')
+    data = file.read()
+    clientes = json.loads(data)
     for cliente in clientes:
       print(f'''
-      Nome: {cliente[0]}
-      Cep: {cliente[1]}
-      Telefone: {cliente[2]}''')
+      Nome: {cliente['cliente_nome']}
+      Cep: {cliente['cliente_cep']}
+      Telefone: {cliente['cliente_telefone']}''')
 
     
 def programa() :
